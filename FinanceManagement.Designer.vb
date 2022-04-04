@@ -22,6 +22,9 @@ Partial Class FinanceManagement
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FinanceManagement))
+        Dim TranTypeLabel As System.Windows.Forms.Label
         Me.TitlePanel = New System.Windows.Forms.Panel()
         Me.FinManagementL = New System.Windows.Forms.Label()
         Me.BasePanel = New System.Windows.Forms.Panel()
@@ -57,6 +60,25 @@ Partial Class FinanceManagement
         Me.Splitter2 = New System.Windows.Forms.Splitter()
         Me.DataPanel = New System.Windows.Forms.Panel()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.FinanceManagementDataSet = New Personal_Assistant2.FinanceManagementDataSet()
+        Me.TransactionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TransactionTableAdapter = New Personal_Assistant2.FinanceManagementDataSetTableAdapters.TransactionTableAdapter()
+        Me.TableAdapterManager = New Personal_Assistant2.FinanceManagementDataSetTableAdapters.TableAdapterManager()
+        Me.TransactionBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
+        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
+        Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
+        Me.TransactionBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
+        Me.TranTypeRadioButton = New System.Windows.Forms.RadioButton()
+        TranTypeLabel = New System.Windows.Forms.Label()
         Me.TitlePanel.SuspendLayout()
         Me.BasePanel.SuspendLayout()
         Me.ButtonPanel.SuspendLayout()
@@ -72,6 +94,10 @@ Partial Class FinanceManagement
         Me.HButtonPanel.SuspendLayout()
         Me.DataPanel.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FinanceManagementDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TransactionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TransactionBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TransactionBindingNavigator.SuspendLayout()
         Me.SuspendLayout()
         '
         'TitlePanel
@@ -89,7 +115,7 @@ Partial Class FinanceManagement
         '
         Me.FinManagementL.AutoSize = True
         Me.FinManagementL.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.FinManagementL.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.FinManagementL.Font = New System.Drawing.Font("Segoe UI", 24.0!)
         Me.FinManagementL.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.FinManagementL.Location = New System.Drawing.Point(22, 10)
         Me.FinManagementL.Name = "FinManagementL"
@@ -226,7 +252,7 @@ Partial Class FinanceManagement
         Me.SoonB.FlatAppearance.BorderSize = 2
         Me.SoonB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.BlueViolet
         Me.SoonB.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.SoonB.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.SoonB.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold)
         Me.SoonB.ForeColor = System.Drawing.Color.White
         Me.SoonB.Location = New System.Drawing.Point(373, 334)
         Me.SoonB.Name = "SoonB"
@@ -240,7 +266,7 @@ Partial Class FinanceManagement
         Me.AddTransactionL.AutoSize = True
         Me.AddTransactionL.Dock = System.Windows.Forms.DockStyle.Top
         Me.AddTransactionL.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.AddTransactionL.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.AddTransactionL.Font = New System.Drawing.Font("Segoe UI", 15.0!)
         Me.AddTransactionL.ForeColor = System.Drawing.Color.BlueViolet
         Me.AddTransactionL.Location = New System.Drawing.Point(100, 250)
         Me.AddTransactionL.Name = "AddTransactionL"
@@ -254,7 +280,7 @@ Partial Class FinanceManagement
         Me.ViewTransactionL.AutoSize = True
         Me.ViewTransactionL.Dock = System.Windows.Forms.DockStyle.Top
         Me.ViewTransactionL.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ViewTransactionL.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.ViewTransactionL.Font = New System.Drawing.Font("Segoe UI", 15.0!)
         Me.ViewTransactionL.ForeColor = System.Drawing.Color.BlueViolet
         Me.ViewTransactionL.Location = New System.Drawing.Point(373, 250)
         Me.ViewTransactionL.Name = "ViewTransactionL"
@@ -268,7 +294,7 @@ Partial Class FinanceManagement
         Me.ViewAccountsL.AutoSize = True
         Me.ViewAccountsL.Dock = System.Windows.Forms.DockStyle.Top
         Me.ViewAccountsL.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ViewAccountsL.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.ViewAccountsL.Font = New System.Drawing.Font("Segoe UI", 15.0!)
         Me.ViewAccountsL.ForeColor = System.Drawing.Color.BlueViolet
         Me.ViewAccountsL.Location = New System.Drawing.Point(100, 494)
         Me.ViewAccountsL.Name = "ViewAccountsL"
@@ -329,7 +355,7 @@ Partial Class FinanceManagement
         Me.TransactionDateGB.Controls.Add(Me.TransactionDatePicker)
         Me.TransactionDateGB.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TransactionDateGB.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.TransactionDateGB.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.TransactionDateGB.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold)
         Me.TransactionDateGB.ForeColor = System.Drawing.Color.BlueViolet
         Me.TransactionDateGB.Location = New System.Drawing.Point(336, 14)
         Me.TransactionDateGB.Name = "TransactionDateGB"
@@ -341,7 +367,7 @@ Partial Class FinanceManagement
         'TransactionDatePicker
         '
         Me.TransactionDatePicker.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TransactionDatePicker.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.TransactionDatePicker.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.TransactionDatePicker.Location = New System.Drawing.Point(26, 40)
         Me.TransactionDatePicker.Name = "TransactionDatePicker"
         Me.TransactionDatePicker.Size = New System.Drawing.Size(211, 34)
@@ -353,7 +379,7 @@ Partial Class FinanceManagement
         Me.TransactionTypeGB.Controls.Add(Me.CreditRB)
         Me.TransactionTypeGB.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TransactionTypeGB.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.TransactionTypeGB.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.TransactionTypeGB.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold)
         Me.TransactionTypeGB.ForeColor = System.Drawing.Color.Gold
         Me.TransactionTypeGB.Location = New System.Drawing.Point(30, 14)
         Me.TransactionTypeGB.Name = "TransactionTypeGB"
@@ -366,7 +392,7 @@ Partial Class FinanceManagement
         '
         Me.DebitRB.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.DebitRB.AutoSize = True
-        Me.DebitRB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.DebitRB.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.DebitRB.ForeColor = System.Drawing.Color.White
         Me.DebitRB.Location = New System.Drawing.Point(136, 38)
         Me.DebitRB.Name = "DebitRB"
@@ -380,7 +406,7 @@ Partial Class FinanceManagement
         '
         Me.CreditRB.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.CreditRB.AutoSize = True
-        Me.CreditRB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.CreditRB.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.CreditRB.ForeColor = System.Drawing.Color.White
         Me.CreditRB.Location = New System.Drawing.Point(26, 38)
         Me.CreditRB.Name = "CreditRB"
@@ -394,7 +420,7 @@ Partial Class FinanceManagement
         '
         Me.AccountGB.Controls.Add(Me.AccountCB)
         Me.AccountGB.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AccountGB.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.AccountGB.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold)
         Me.AccountGB.ForeColor = System.Drawing.Color.BlueViolet
         Me.AccountGB.Location = New System.Drawing.Point(336, 122)
         Me.AccountGB.Name = "AccountGB"
@@ -406,18 +432,18 @@ Partial Class FinanceManagement
         'AccountCB
         '
         Me.AccountCB.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.AccountCB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.AccountCB.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.AccountCB.FormattingEnabled = True
         Me.AccountCB.Location = New System.Drawing.Point(26, 39)
         Me.AccountCB.Name = "AccountCB"
-        Me.AccountCB.Size = New System.Drawing.Size(211, 36)
+        Me.AccountCB.Size = New System.Drawing.Size(87, 36)
         Me.AccountCB.TabIndex = 6
         '
         'DescriptionGB
         '
         Me.DescriptionGB.Controls.Add(Me.DescriptionTB)
         Me.DescriptionGB.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DescriptionGB.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.DescriptionGB.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold)
         Me.DescriptionGB.ForeColor = System.Drawing.Color.BlueViolet
         Me.DescriptionGB.Location = New System.Drawing.Point(336, 230)
         Me.DescriptionGB.Name = "DescriptionGB"
@@ -430,7 +456,7 @@ Partial Class FinanceManagement
         '
         Me.DescriptionTB.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DescriptionTB.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.DescriptionTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.DescriptionTB.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.DescriptionTB.Location = New System.Drawing.Point(26, 48)
         Me.DescriptionTB.Name = "DescriptionTB"
         Me.DescriptionTB.Size = New System.Drawing.Size(211, 27)
@@ -438,9 +464,11 @@ Partial Class FinanceManagement
         '
         'AmountGB
         '
+        Me.AmountGB.Controls.Add(TranTypeLabel)
+        Me.AmountGB.Controls.Add(Me.TranTypeRadioButton)
         Me.AmountGB.Controls.Add(Me.AmountTB)
         Me.AmountGB.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AmountGB.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.AmountGB.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold)
         Me.AmountGB.ForeColor = System.Drawing.Color.BlueViolet
         Me.AmountGB.Location = New System.Drawing.Point(30, 122)
         Me.AmountGB.Name = "AmountGB"
@@ -454,17 +482,17 @@ Partial Class FinanceManagement
         Me.AmountTB.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.AmountTB.BackColor = System.Drawing.Color.BlueViolet
         Me.AmountTB.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.AmountTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.AmountTB.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.AmountTB.Location = New System.Drawing.Point(26, 39)
         Me.AmountTB.Name = "AmountTB"
-        Me.AmountTB.Size = New System.Drawing.Size(220, 27)
+        Me.AmountTB.Size = New System.Drawing.Size(86, 27)
         Me.AmountTB.TabIndex = 4
         '
         'CatagoryGB
         '
         Me.CatagoryGB.Controls.Add(Me.CatagoryCB)
         Me.CatagoryGB.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CatagoryGB.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.CatagoryGB.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold)
         Me.CatagoryGB.ForeColor = System.Drawing.Color.BlueViolet
         Me.CatagoryGB.Location = New System.Drawing.Point(30, 230)
         Me.CatagoryGB.Name = "CatagoryGB"
@@ -476,7 +504,7 @@ Partial Class FinanceManagement
         'CatagoryCB
         '
         Me.CatagoryCB.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CatagoryCB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.CatagoryCB.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.CatagoryCB.FormattingEnabled = True
         Me.CatagoryCB.Location = New System.Drawing.Point(26, 40)
         Me.CatagoryCB.Name = "CatagoryCB"
@@ -554,11 +582,164 @@ Partial Class FinanceManagement
         Me.DataGridView1.Size = New System.Drawing.Size(894, 226)
         Me.DataGridView1.TabIndex = 0
         '
+        'FinanceManagementDataSet
+        '
+        Me.FinanceManagementDataSet.DataSetName = "FinanceManagementDataSet"
+        Me.FinanceManagementDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'TransactionBindingSource
+        '
+        Me.TransactionBindingSource.DataMember = "Transaction"
+        Me.TransactionBindingSource.DataSource = Me.FinanceManagementDataSet
+        '
+        'TransactionTableAdapter
+        '
+        Me.TransactionTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.AccountTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.TransactionTableAdapter = Me.TransactionTableAdapter
+        Me.TableAdapterManager.UpdateOrder = Personal_Assistant2.FinanceManagementDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'TransactionBindingNavigator
+        '
+        Me.TransactionBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem
+        Me.TransactionBindingNavigator.BindingSource = Me.TransactionBindingSource
+        Me.TransactionBindingNavigator.CountItem = Me.BindingNavigatorCountItem
+        Me.TransactionBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
+        Me.TransactionBindingNavigator.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.TransactionBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.TransactionBindingNavigatorSaveItem})
+        Me.TransactionBindingNavigator.Location = New System.Drawing.Point(0, 0)
+        Me.TransactionBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
+        Me.TransactionBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
+        Me.TransactionBindingNavigator.MoveNextItem = Me.BindingNavigatorMoveNextItem
+        Me.TransactionBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
+        Me.TransactionBindingNavigator.Name = "TransactionBindingNavigator"
+        Me.TransactionBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
+        Me.TransactionBindingNavigator.Size = New System.Drawing.Size(906, 29)
+        Me.TransactionBindingNavigator.TabIndex = 4
+        Me.TransactionBindingNavigator.Text = "BindingNavigator1"
+        '
+        'BindingNavigatorMoveFirstItem
+        '
+        Me.BindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveFirstItem.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveFirstItem.Name = "BindingNavigatorMoveFirstItem"
+        Me.BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(29, 22)
+        Me.BindingNavigatorMoveFirstItem.Text = "Move first"
+        '
+        'BindingNavigatorMovePreviousItem
+        '
+        Me.BindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMovePreviousItem.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMovePreviousItem.Name = "BindingNavigatorMovePreviousItem"
+        Me.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(29, 22)
+        Me.BindingNavigatorMovePreviousItem.Text = "Move previous"
+        '
+        'BindingNavigatorSeparator
+        '
+        Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
+        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 25)
+        '
+        'BindingNavigatorPositionItem
+        '
+        Me.BindingNavigatorPositionItem.AccessibleName = "Position"
+        Me.BindingNavigatorPositionItem.AutoSize = False
+        Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
+        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 27)
+        Me.BindingNavigatorPositionItem.Text = "0"
+        Me.BindingNavigatorPositionItem.ToolTipText = "Current position"
+        '
+        'BindingNavigatorCountItem
+        '
+        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(45, 20)
+        Me.BindingNavigatorCountItem.Text = "of {0}"
+        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
+        '
+        'BindingNavigatorSeparator1
+        '
+        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator"
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 6)
+        '
+        'BindingNavigatorMoveNextItem
+        '
+        Me.BindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
+        Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(29, 24)
+        Me.BindingNavigatorMoveNextItem.Text = "Move next"
+        '
+        'BindingNavigatorMoveLastItem
+        '
+        Me.BindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
+        Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(29, 24)
+        Me.BindingNavigatorMoveLastItem.Text = "Move last"
+        '
+        'BindingNavigatorSeparator2
+        '
+        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator"
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 6)
+        '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(29, 26)
+        Me.BindingNavigatorAddNewItem.Text = "Add new"
+        '
+        'BindingNavigatorDeleteItem
+        '
+        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
+        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(29, 24)
+        Me.BindingNavigatorDeleteItem.Text = "Delete"
+        '
+        'TransactionBindingNavigatorSaveItem
+        '
+        Me.TransactionBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.TransactionBindingNavigatorSaveItem.Image = CType(resources.GetObject("TransactionBindingNavigatorSaveItem.Image"), System.Drawing.Image)
+        Me.TransactionBindingNavigatorSaveItem.Name = "TransactionBindingNavigatorSaveItem"
+        Me.TransactionBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 23)
+        Me.TransactionBindingNavigatorSaveItem.Text = "Save Data"
+        '
+        'TranTypeLabel
+        '
+        TranTypeLabel.AutoSize = True
+        TranTypeLabel.Location = New System.Drawing.Point(20, 44)
+        TranTypeLabel.Name = "TranTypeLabel"
+        TranTypeLabel.Size = New System.Drawing.Size(122, 31)
+        TranTypeLabel.TabIndex = 4
+        TranTypeLabel.Text = "Tran Type:"
+        '
+        'TranTypeRadioButton
+        '
+        Me.TranTypeRadioButton.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.TransactionBindingSource, "TranType", True))
+        Me.TranTypeRadioButton.Location = New System.Drawing.Point(161, 34)
+        Me.TranTypeRadioButton.Name = "TranTypeRadioButton"
+        Me.TranTypeRadioButton.Size = New System.Drawing.Size(104, 24)
+        Me.TranTypeRadioButton.TabIndex = 5
+        Me.TranTypeRadioButton.TabStop = True
+        Me.TranTypeRadioButton.Text = "RadioButton1"
+        Me.TranTypeRadioButton.UseVisualStyleBackColor = True
+        '
         'FinanceManagement
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.BlueViolet
+        Me.Controls.Add(Me.TransactionBindingNavigator)
         Me.Controls.Add(Me.HorizondalSplitPanel)
         Me.Controls.Add(Me.BasePanel)
         Me.Controls.Add(Me.TitlePanel)
@@ -585,7 +766,13 @@ Partial Class FinanceManagement
         Me.HButtonPanel.ResumeLayout(False)
         Me.DataPanel.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FinanceManagementDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TransactionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TransactionBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TransactionBindingNavigator.ResumeLayout(False)
+        Me.TransactionBindingNavigator.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents TitlePanel As Panel
@@ -623,4 +810,22 @@ Partial Class FinanceManagement
     Friend WithEvents DataPanel As Panel
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents CancelTransactionB As Button
+    Friend WithEvents FinanceManagementDataSet As FinanceManagementDataSet
+    Friend WithEvents TransactionBindingSource As BindingSource
+    Friend WithEvents TransactionTableAdapter As FinanceManagementDataSetTableAdapters.TransactionTableAdapter
+    Friend WithEvents TableAdapterManager As FinanceManagementDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents TransactionBindingNavigator As BindingNavigator
+    Friend WithEvents BindingNavigatorAddNewItem As ToolStripButton
+    Friend WithEvents BindingNavigatorCountItem As ToolStripLabel
+    Friend WithEvents BindingNavigatorDeleteItem As ToolStripButton
+    Friend WithEvents BindingNavigatorMoveFirstItem As ToolStripButton
+    Friend WithEvents BindingNavigatorMovePreviousItem As ToolStripButton
+    Friend WithEvents BindingNavigatorSeparator As ToolStripSeparator
+    Friend WithEvents BindingNavigatorPositionItem As ToolStripTextBox
+    Friend WithEvents BindingNavigatorSeparator1 As ToolStripSeparator
+    Friend WithEvents BindingNavigatorMoveNextItem As ToolStripButton
+    Friend WithEvents BindingNavigatorMoveLastItem As ToolStripButton
+    Friend WithEvents BindingNavigatorSeparator2 As ToolStripSeparator
+    Friend WithEvents TransactionBindingNavigatorSaveItem As ToolStripButton
+    Friend WithEvents TranTypeRadioButton As RadioButton
 End Class

@@ -260,7 +260,7 @@ Public Class Form1
         MsgBox(Application.UserAppDataPath)
         Dim DBLocation As String
         'Store the location of the database here
-        DBLocation = "E:\VB Project\Personal Assistant\Personal Assistant\Personal Assistant\PersonalAssistantDB.mdf"
+        DBLocation = "E:\VB Project\Personal Assistant\Personal Assistant2\PersonalAssistantDB.mdf"
         'Setting Connection String
         con.ConnectionString = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" & DBLocation & ";Integrated Security=True"
 

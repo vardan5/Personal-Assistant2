@@ -41,4 +41,11 @@ Public Class FinanceManagement
         HorizondalSplitPanel.Enabled = False
 
     End Sub
+
+    Private Sub TransactionBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles TransactionBindingNavigatorSaveItem.Click
+        Me.Validate()
+        Me.TransactionBindingSource.EndEdit()
+        Me.TableAdapterManager.UpdateAll(Me.FinanceManagementDataSet)
+
+    End Sub
 End Class
