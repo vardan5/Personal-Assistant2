@@ -22,10 +22,8 @@ Partial Class FinanceManagement
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FinanceManagement))
         Me.TitlePanel = New System.Windows.Forms.Panel()
-        Me.FinManagementL = New System.Windows.Forms.Label()
+        Me.TitleL = New System.Windows.Forms.Label()
         Me.BasePanel = New System.Windows.Forms.Panel()
         Me.AnimationPanel = New System.Windows.Forms.Panel()
         Me.Splitter1 = New System.Windows.Forms.Splitter()
@@ -42,7 +40,6 @@ Partial Class FinanceManagement
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TransactionDateGB = New System.Windows.Forms.GroupBox()
         Me.TransactionDatePicker = New System.Windows.Forms.DateTimePicker()
-
         Me.TransactionTypeGB = New System.Windows.Forms.GroupBox()
         Me.TranTypeRadioButton1 = New System.Windows.Forms.RadioButton()
         Me.TranTypeRadioButton = New System.Windows.Forms.RadioButton()
@@ -60,6 +57,7 @@ Partial Class FinanceManagement
         Me.HButtonPanel = New System.Windows.Forms.Panel()
         Me.Splitter2 = New System.Windows.Forms.Splitter()
         Me.DataPanel = New System.Windows.Forms.Panel()
+        Me.AddAccountPanel = New System.Windows.Forms.Panel()
         Me.TitlePanel.SuspendLayout()
         Me.BasePanel.SuspendLayout()
         Me.ButtonPanel.SuspendLayout()
@@ -73,7 +71,6 @@ Partial Class FinanceManagement
         Me.CatagoryGB.SuspendLayout()
         Me.HorizondalSplitPanel.SuspendLayout()
         Me.HButtonPanel.SuspendLayout()
-        Me.DataPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'TitlePanel
@@ -81,23 +78,23 @@ Partial Class FinanceManagement
         Me.TitlePanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TitlePanel.BackColor = System.Drawing.Color.BlueViolet
-        Me.TitlePanel.Controls.Add(Me.FinManagementL)
+        Me.TitlePanel.Controls.Add(Me.TitleL)
         Me.TitlePanel.Location = New System.Drawing.Point(3, 3)
         Me.TitlePanel.Name = "TitlePanel"
         Me.TitlePanel.Size = New System.Drawing.Size(900, 71)
         Me.TitlePanel.TabIndex = 2
         '
-        'FinManagementL
+        'TitleL
         '
-        Me.FinManagementL.AutoSize = True
-        Me.FinManagementL.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.FinManagementL.Font = New System.Drawing.Font("Segoe UI", 24.0!)
-        Me.FinManagementL.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
-        Me.FinManagementL.Location = New System.Drawing.Point(22, 10)
-        Me.FinManagementL.Name = "FinManagementL"
-        Me.FinManagementL.Size = New System.Drawing.Size(405, 54)
-        Me.FinManagementL.TabIndex = 0
-        Me.FinManagementL.Text = "Finance Management"
+        Me.TitleL.AutoSize = True
+        Me.TitleL.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.TitleL.Font = New System.Drawing.Font("Segoe UI", 24.0!)
+        Me.TitleL.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.TitleL.Location = New System.Drawing.Point(22, 10)
+        Me.TitleL.Name = "TitleL"
+        Me.TitleL.Size = New System.Drawing.Size(405, 54)
+        Me.TitleL.TabIndex = 0
+        Me.TitleL.Text = "Finance Management"
         '
         'BasePanel
         '
@@ -274,9 +271,9 @@ Partial Class FinanceManagement
         Me.ViewAccountsL.ForeColor = System.Drawing.Color.BlueViolet
         Me.ViewAccountsL.Location = New System.Drawing.Point(100, 494)
         Me.ViewAccountsL.Name = "ViewAccountsL"
-        Me.ViewAccountsL.Size = New System.Drawing.Size(176, 70)
+        Me.ViewAccountsL.Size = New System.Drawing.Size(176, 35)
         Me.ViewAccountsL.TabIndex = 5
-        Me.ViewAccountsL.Text = "View Accounts"
+        Me.ViewAccountsL.Text = "Add Account"
         Me.ViewAccountsL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'AddTransactionTableLayout
@@ -549,13 +546,23 @@ Partial Class FinanceManagement
         Me.DataPanel.Size = New System.Drawing.Size(900, 211)
         Me.DataPanel.TabIndex = 0
         '
+        'AddAccountPanel
+        '
+        Me.AddAccountPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.AddAccountPanel.Location = New System.Drawing.Point(3, 80)
+        Me.AddAccountPanel.Name = "AddAccountPanel"
+        Me.AddAccountPanel.Size = New System.Drawing.Size(900, 585)
+        Me.AddAccountPanel.TabIndex = 0
+        Me.AddAccountPanel.Visible = False
+        '
         'FinanceManagement
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.BlueViolet
-        Me.Controls.Add(Me.HorizondalSplitPanel)
+        Me.Controls.Add(Me.AddAccountPanel)
         Me.Controls.Add(Me.BasePanel)
         Me.Controls.Add(Me.TitlePanel)
+        Me.Controls.Add(Me.HorizondalSplitPanel)
         Me.DoubleBuffered = True
         Me.Name = "FinanceManagement"
         Me.Size = New System.Drawing.Size(906, 665)
@@ -577,13 +584,11 @@ Partial Class FinanceManagement
         Me.CatagoryGB.ResumeLayout(False)
         Me.HorizondalSplitPanel.ResumeLayout(False)
         Me.HButtonPanel.ResumeLayout(False)
-        Me.DataPanel.ResumeLayout(False)
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents TitlePanel As Panel
-    Friend WithEvents FinManagementL As Label
+    Friend WithEvents TitleL As Label
     Friend WithEvents BasePanel As Panel
     Friend WithEvents Splitter1 As Splitter
     Friend WithEvents ButtonPanel As Panel
@@ -617,4 +622,5 @@ Partial Class FinanceManagement
     Friend WithEvents TranTypeRadioButton As RadioButton
     Friend WithEvents TranTypeRadioButton1 As RadioButton
     Friend WithEvents TranNumTextBox As TextBox
+    Friend WithEvents AddAccountPanel As Panel
 End Class

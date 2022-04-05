@@ -28,6 +28,7 @@ Public Class FinanceManagement
     Private Sub AddTransactionB_Click(sender As Object, e As EventArgs) Handles AddTransactionB.Click
         BasePanel.Visible = False
         BasePanel.Enabled = False
+        TitleL.Text = "Add Transaction"
         HorizondalSplitPanel.Visible = True
         HorizondalSplitPanel.Enabled = True
     End Sub
@@ -37,6 +38,8 @@ Public Class FinanceManagement
         BasePanel.Enabled = True
         AmountTB.Text = ""
         DescriptionTB.Text = ""
+
+        TitleL.Text = "Finance Management"
         HorizondalSplitPanel.Visible = False
         HorizondalSplitPanel.Enabled = False
 
