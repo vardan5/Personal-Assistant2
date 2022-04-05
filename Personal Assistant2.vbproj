@@ -163,6 +163,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FinanceManagement.resx">
       <DependentUpon>FinanceManagement.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
