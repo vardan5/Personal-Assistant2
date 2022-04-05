@@ -42,11 +42,5 @@ Public Class FinanceManagement
 
     End Sub
 
-    Private Sub TransactionBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles TransactionBindingNavigatorSaveItem.Click
-        Me.Validate()
-        Me.TransactionBS.EndEdit()
-        Me.TableAdapterManager.UpdateAll(Me.FinanceManagementDS)
-
-    End Sub
 
 End Class

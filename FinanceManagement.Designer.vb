@@ -60,8 +60,6 @@ Partial Class FinanceManagement
         Me.HButtonPanel = New System.Windows.Forms.Panel()
         Me.Splitter2 = New System.Windows.Forms.Splitter()
         Me.DataPanel = New System.Windows.Forms.Panel()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-
         Me.TitlePanel.SuspendLayout()
         Me.BasePanel.SuspendLayout()
         Me.ButtonPanel.SuspendLayout()
@@ -76,7 +74,6 @@ Partial Class FinanceManagement
         Me.HorizondalSplitPanel.SuspendLayout()
         Me.HButtonPanel.SuspendLayout()
         Me.DataPanel.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TitlePanel
@@ -546,27 +543,11 @@ Partial Class FinanceManagement
         '
         'DataPanel
         '
-        Me.DataPanel.Controls.Add(Me.DataGridView1)
         Me.DataPanel.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.DataPanel.Location = New System.Drawing.Point(0, 374)
         Me.DataPanel.Name = "DataPanel"
         Me.DataPanel.Size = New System.Drawing.Size(900, 211)
         Me.DataPanel.TabIndex = 0
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn())
-        Me.DataGridView1.Location = New System.Drawing.Point(3, 6)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.RowTemplate.Height = 29
-        Me.DataGridView1.Size = New System.Drawing.Size(894, 202)
-        Me.DataGridView1.TabIndex = 0
         '
         'FinanceManagement
         '
@@ -597,7 +578,6 @@ Partial Class FinanceManagement
         Me.HorizondalSplitPanel.ResumeLayout(False)
         Me.HButtonPanel.ResumeLayout(False)
         Me.DataPanel.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -633,7 +613,6 @@ Partial Class FinanceManagement
     Friend WithEvents HButtonPanel As Panel
     Friend WithEvents Splitter2 As Splitter
     Friend WithEvents DataPanel As Panel
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents CancelTransactionB As Button
     Friend WithEvents TranTypeRadioButton As RadioButton
     Friend WithEvents TranTypeRadioButton1 As RadioButton

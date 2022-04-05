@@ -104,11 +104,6 @@
     <Compile Include="FinanceManagement.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FinanceManagementDataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FinanceManagementDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="FinanceManagementModule.vb" />
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
@@ -188,17 +183,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="FinanceManagementDataSet.xsc">
-      <DependentUpon>FinanceManagementDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="FinanceManagementDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>FinanceManagementDataSet.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="FinanceManagementDataSet.xss">
-      <DependentUpon>FinanceManagementDataSet.xsd</DependentUpon>
-    </None>
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
