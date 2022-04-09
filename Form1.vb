@@ -257,7 +257,6 @@ Public Class Form1
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
-        MsgBox(Application.UserAppDataPath)
         Dim DBLocation As String
         'Store the location of the database here
         DBLocation = "E:\VB Project\Personal Assistant\Personal Assistant2\PersonalAssistantDB.mdf"

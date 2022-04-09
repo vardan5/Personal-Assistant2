@@ -126,7 +126,7 @@ Partial Class Form1
         Me.PasswordTB.Name = "PasswordTB"
         Me.PasswordTB.Size = New System.Drawing.Size(274, 15)
         Me.PasswordTB.TabIndex = 1
-        Me.PasswordTB.Text = "Password"
+        Me.PasswordTB.Text = "1234"
         Me.PasswordTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'UsernameTB
@@ -138,7 +138,7 @@ Partial Class Form1
         Me.UsernameTB.Name = "UsernameTB"
         Me.UsernameTB.Size = New System.Drawing.Size(274, 22)
         Me.UsernameTB.TabIndex = 0
-        Me.UsernameTB.Text = "Username"
+        Me.UsernameTB.Text = "Vardan"
         Me.UsernameTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'RightLogoPB

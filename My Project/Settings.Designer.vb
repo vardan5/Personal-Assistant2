@@ -75,6 +75,17 @@ Namespace My
                 Return CType(Me("PersonalAssistantDBConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""E:\VB Project\Personal Assis"& _ 
+            "tant\Personal Assistant2\PersonalAssistantDB.mdf"";Integrated Security=True")>  _
+        Public ReadOnly Property PADBConnString() As String
+            Get
+                Return CType(Me("PADBConnString"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 
