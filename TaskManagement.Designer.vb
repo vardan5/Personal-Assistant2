@@ -51,7 +51,6 @@ Partial Class TaskManagement
         Me.MainTaskBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PersonalAssistantDBDataSet = New Personal_Assistant2.PersonalAssistantDBDataSet()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.DummyL = New System.Windows.Forms.Label()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.MTPriorityL = New System.Windows.Forms.Label()
@@ -61,11 +60,6 @@ Partial Class TaskManagement
         Me.STNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.STName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.STStatus = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.ParentTaskNumDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.OrderNumDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SubTaskNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SubTaskDescDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.StatusDataGridViewImageColumn = New System.Windows.Forms.DataGridViewImageColumn()
         Me.SubTaskBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AddTaskPanel = New System.Windows.Forms.Panel()
         Me.InnerPanel = New System.Windows.Forms.Panel()
@@ -488,12 +482,10 @@ Partial Class TaskManagement
         '
         Me.ViewMainTaskDGV.AllowUserToAddRows = False
         Me.ViewMainTaskDGV.AllowUserToDeleteRows = False
-        Me.ViewMainTaskDGV.AutoGenerateColumns = False
         Me.ViewMainTaskDGV.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.ViewMainTaskDGV.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText
         Me.ViewMainTaskDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ViewMainTaskDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TaskNumb, Me.TaskNam, Me.MTDate})
-        Me.ViewMainTaskDGV.DataSource = Me.MainTaskBindingSource
         Me.ViewMainTaskDGV.GridColor = System.Drawing.Color.BlueViolet
         Me.ViewMainTaskDGV.Location = New System.Drawing.Point(3, 3)
         Me.ViewMainTaskDGV.Name = "ViewMainTaskDGV"
@@ -517,7 +509,6 @@ Partial Class TaskManagement
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.DummyL)
         Me.Panel2.Controls.Add(Me.ProgressBar1)
         Me.Panel2.Controls.Add(Me.TextBox4)
         Me.Panel2.Controls.Add(Me.MTPriorityL)
@@ -529,21 +520,9 @@ Partial Class TaskManagement
         Me.Panel2.Size = New System.Drawing.Size(474, 183)
         Me.Panel2.TabIndex = 3
         '
-        'DummyL
-        '
-        Me.DummyL.AutoSize = True
-        Me.DummyL.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MainTaskBindingSource, "TaskNum", True))
-        Me.DummyL.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.DummyL.Location = New System.Drawing.Point(165, 103)
-        Me.DummyL.Name = "DummyL"
-        Me.DummyL.Size = New System.Drawing.Size(14, 16)
-        Me.DummyL.TabIndex = 4
-        Me.DummyL.Text = "1"
-        '
         'ProgressBar1
         '
         Me.ProgressBar1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBar1.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.MainTaskBindingSource, "Progress", True))
         Me.ProgressBar1.ForeColor = System.Drawing.Color.BlueViolet
         Me.ProgressBar1.Location = New System.Drawing.Point(24, 129)
         Me.ProgressBar1.Name = "ProgressBar1"
@@ -553,7 +532,6 @@ Partial Class TaskManagement
         'TextBox4
         '
         Me.TextBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox4.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MainTaskBindingSource, "TaskDesc", True))
         Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox4.Location = New System.Drawing.Point(24, 33)
         Me.TextBox4.Multiline = True
@@ -599,11 +577,9 @@ Partial Class TaskManagement
         '
         Me.ViewSubTaskDGV.AllowUserToAddRows = False
         Me.ViewSubTaskDGV.AllowUserToDeleteRows = False
-        Me.ViewSubTaskDGV.AutoGenerateColumns = False
         Me.ViewSubTaskDGV.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.ViewSubTaskDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ViewSubTaskDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.STNum, Me.STName, Me.STStatus, Me.ParentTaskNumDataGridViewTextBoxColumn, Me.OrderNumDataGridViewTextBoxColumn, Me.SubTaskNameDataGridViewTextBoxColumn, Me.SubTaskDescDataGridViewTextBoxColumn, Me.StatusDataGridViewImageColumn})
-        Me.ViewSubTaskDGV.DataSource = Me.SubTaskBindingSource
+        Me.ViewSubTaskDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.STNum, Me.STName, Me.STStatus})
         Me.ViewSubTaskDGV.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ViewSubTaskDGV.Location = New System.Drawing.Point(482, 192)
         Me.ViewSubTaskDGV.MultiSelect = False
@@ -647,51 +623,6 @@ Partial Class TaskManagement
         Me.STStatus.Name = "STStatus"
         Me.STStatus.ReadOnly = True
         Me.STStatus.TrueValue = "COMPLETED"
-        '
-        'ParentTaskNumDataGridViewTextBoxColumn
-        '
-        Me.ParentTaskNumDataGridViewTextBoxColumn.DataPropertyName = "ParentTaskNum"
-        Me.ParentTaskNumDataGridViewTextBoxColumn.HeaderText = "ParentTaskNum"
-        Me.ParentTaskNumDataGridViewTextBoxColumn.MinimumWidth = 6
-        Me.ParentTaskNumDataGridViewTextBoxColumn.Name = "ParentTaskNumDataGridViewTextBoxColumn"
-        Me.ParentTaskNumDataGridViewTextBoxColumn.ReadOnly = True
-        Me.ParentTaskNumDataGridViewTextBoxColumn.Width = 125
-        '
-        'OrderNumDataGridViewTextBoxColumn
-        '
-        Me.OrderNumDataGridViewTextBoxColumn.DataPropertyName = "OrderNum"
-        Me.OrderNumDataGridViewTextBoxColumn.HeaderText = "OrderNum"
-        Me.OrderNumDataGridViewTextBoxColumn.MinimumWidth = 6
-        Me.OrderNumDataGridViewTextBoxColumn.Name = "OrderNumDataGridViewTextBoxColumn"
-        Me.OrderNumDataGridViewTextBoxColumn.ReadOnly = True
-        Me.OrderNumDataGridViewTextBoxColumn.Width = 125
-        '
-        'SubTaskNameDataGridViewTextBoxColumn
-        '
-        Me.SubTaskNameDataGridViewTextBoxColumn.DataPropertyName = "SubTaskName"
-        Me.SubTaskNameDataGridViewTextBoxColumn.HeaderText = "SubTaskName"
-        Me.SubTaskNameDataGridViewTextBoxColumn.MinimumWidth = 6
-        Me.SubTaskNameDataGridViewTextBoxColumn.Name = "SubTaskNameDataGridViewTextBoxColumn"
-        Me.SubTaskNameDataGridViewTextBoxColumn.ReadOnly = True
-        Me.SubTaskNameDataGridViewTextBoxColumn.Width = 125
-        '
-        'SubTaskDescDataGridViewTextBoxColumn
-        '
-        Me.SubTaskDescDataGridViewTextBoxColumn.DataPropertyName = "SubTaskDesc"
-        Me.SubTaskDescDataGridViewTextBoxColumn.HeaderText = "SubTaskDesc"
-        Me.SubTaskDescDataGridViewTextBoxColumn.MinimumWidth = 6
-        Me.SubTaskDescDataGridViewTextBoxColumn.Name = "SubTaskDescDataGridViewTextBoxColumn"
-        Me.SubTaskDescDataGridViewTextBoxColumn.ReadOnly = True
-        Me.SubTaskDescDataGridViewTextBoxColumn.Width = 125
-        '
-        'StatusDataGridViewImageColumn
-        '
-        Me.StatusDataGridViewImageColumn.DataPropertyName = "Status"
-        Me.StatusDataGridViewImageColumn.HeaderText = "Status"
-        Me.StatusDataGridViewImageColumn.MinimumWidth = 6
-        Me.StatusDataGridViewImageColumn.Name = "StatusDataGridViewImageColumn"
-        Me.StatusDataGridViewImageColumn.ReadOnly = True
-        Me.StatusDataGridViewImageColumn.Width = 125
         '
         'SubTaskBindingSource
         '
@@ -1198,15 +1129,9 @@ Partial Class TaskManagement
     Friend WithEvents TaskViewEndDate As DateTimePicker
     Friend WithEvents TaskManagementL As Label
     Friend WithEvents TitlePanel As Panel
-    Friend WithEvents DummyL As Label
     Friend WithEvents STNum As DataGridViewTextBoxColumn
     Friend WithEvents STName As DataGridViewTextBoxColumn
     Friend WithEvents STStatus As DataGridViewCheckBoxColumn
-    Friend WithEvents ParentTaskNumDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents OrderNumDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents SubTaskNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents SubTaskDescDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents StatusDataGridViewImageColumn As DataGridViewImageColumn
     Friend WithEvents TaskNumb As DataGridViewTextBoxColumn
     Friend WithEvents TaskNam As DataGridViewTextBoxColumn
     Friend WithEvents MTDate As DataGridViewTextBoxColumn

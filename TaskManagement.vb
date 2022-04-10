@@ -74,21 +74,6 @@ Public Class TaskManagement
     End Sub
 
     Private Sub ViewViewTaskB_Click(sender As Object, e As EventArgs) Handles ViewViewTaskB.Click
-        Try
-            Me.MainTaskTableAdapter.Fill(Me.PersonalAssistantDBDataSet.MainTask)
-        Catch ex As System.Exception
-            System.Windows.Forms.MessageBox.Show("From ViewB : " & ex.Message)
-        End Try
-        'ShowDataDGV("MainTask", "")
-    End Sub
-
-
-    Private Sub DummyL_TextChanged(sender As Object, e As EventArgs) Handles DummyL.TextChanged
-        Try
-            Me.SubTaskTableAdapter.FillByParentNum(Me.PersonalAssistantDBDataSet.SubTask, CType(DummyL.Text, Integer))
-        Catch ex As System.Exception
-            System.Windows.Forms.MessageBox.Show("Dummy" & ex.Message)
-        End Try
     End Sub
 
     Private Sub ViewTaskPanel_VisibleChanged(sender As Object, e As EventArgs) Handles ViewTaskPanel.VisibleChanged
