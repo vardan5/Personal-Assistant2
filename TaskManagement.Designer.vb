@@ -40,8 +40,13 @@ Partial Class TaskManagement
         Me.ViewTaskPanel = New System.Windows.Forms.Panel()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.ViewViewTask = New System.Windows.Forms.Button()
+        Me.MTDesc = New System.Windows.Forms.Label()
         Me.BackFromViewTaskB = New System.Windows.Forms.Button()
-        Me.ViewTaskDGV = New System.Windows.Forms.DataGridView()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.ViewMainTaskDGV = New System.Windows.Forms.DataGridView()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.ViewSubTaskDGV = New System.Windows.Forms.DataGridView()
         Me.AddTaskPanel = New System.Windows.Forms.Panel()
         Me.InnerPanel = New System.Windows.Forms.Panel()
         Me.AddTaskTitle = New System.Windows.Forms.Label()
@@ -72,10 +77,15 @@ Partial Class TaskManagement
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.STNum = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.STName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.STStatus = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.MTPriorityL = New System.Windows.Forms.Label()
+        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
+        Me.ProgressVal = New System.Windows.Forms.Label()
         Me.TaskNumb = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TaskNam = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MTDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HomeTaskPanel.SuspendLayout()
         Me.ButtonPanel.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -86,12 +96,14 @@ Partial Class TaskManagement
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
-        CType(Me.ViewTaskDGV, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel2.SuspendLayout()
+        CType(Me.ViewMainTaskDGV, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        CType(Me.ViewSubTaskDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AddTaskPanel.SuspendLayout()
         Me.InnerPanel.SuspendLayout()
         Me.DeleteTaskPanel.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'HomeTaskPanel
@@ -321,6 +333,7 @@ Partial Class TaskManagement
         '
         'SplitContainer1
         '
+        Me.SplitContainer1.BackColor = System.Drawing.Color.BlueViolet
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
         Me.SplitContainer1.Name = "SplitContainer1"
@@ -328,6 +341,7 @@ Partial Class TaskManagement
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.SplitContainer1.Panel1.Controls.Add(Me.ViewViewTask)
         Me.SplitContainer1.Panel1.Controls.Add(Me.BackFromViewTaskB)
         '
@@ -335,40 +349,108 @@ Partial Class TaskManagement
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.TableLayoutPanel2)
         Me.SplitContainer1.Size = New System.Drawing.Size(959, 585)
-        Me.SplitContainer1.SplitterDistance = 151
+        Me.SplitContainer1.SplitterDistance = 101
         Me.SplitContainer1.TabIndex = 0
         '
         'ViewViewTask
         '
-        Me.ViewViewTask.Location = New System.Drawing.Point(760, 31)
+        Me.ViewViewTask.Location = New System.Drawing.Point(763, 24)
         Me.ViewViewTask.Name = "ViewViewTask"
         Me.ViewViewTask.Size = New System.Drawing.Size(75, 64)
         Me.ViewViewTask.TabIndex = 0
         Me.ViewViewTask.Text = "View"
         Me.ViewViewTask.UseVisualStyleBackColor = True
         '
+        'MTDesc
+        '
+        Me.MTDesc.AutoSize = True
+        Me.MTDesc.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MTDesc.ForeColor = System.Drawing.Color.Gold
+        Me.MTDesc.Location = New System.Drawing.Point(19, 7)
+        Me.MTDesc.Name = "MTDesc"
+        Me.MTDesc.Size = New System.Drawing.Size(146, 29)
+        Me.MTDesc.TabIndex = 1
+        Me.MTDesc.Text = "Description"
+        '
         'BackFromViewTaskB
         '
-        Me.BackFromViewTaskB.Location = New System.Drawing.Point(853, 31)
+        Me.BackFromViewTaskB.Location = New System.Drawing.Point(857, 24)
         Me.BackFromViewTaskB.Name = "BackFromViewTaskB"
         Me.BackFromViewTaskB.Size = New System.Drawing.Size(75, 64)
         Me.BackFromViewTaskB.TabIndex = 0
         Me.BackFromViewTaskB.Text = "Back"
         Me.BackFromViewTaskB.UseVisualStyleBackColor = True
         '
-        'ViewTaskDGV
+        'TableLayoutPanel2
         '
-        Me.ViewTaskDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ViewTaskDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TaskNumb, Me.TaskNam})
-        Me.ViewTaskDGV.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ViewTaskDGV.Location = New System.Drawing.Point(3, 3)
-        Me.ViewTaskDGV.Name = "ViewTaskDGV"
-        Me.ViewTaskDGV.ReadOnly = True
-        Me.ViewTaskDGV.RowHeadersWidth = 51
-        Me.TableLayoutPanel2.SetRowSpan(Me.ViewTaskDGV, 2)
-        Me.ViewTaskDGV.RowTemplate.Height = 24
-        Me.ViewTaskDGV.Size = New System.Drawing.Size(473, 424)
-        Me.ViewTaskDGV.TabIndex = 0
+        Me.TableLayoutPanel2.ColumnCount = 2
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.ViewMainTaskDGV, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.Panel2, 1, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.ViewSubTaskDGV, 1, 1)
+        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 2
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.66667!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.33333!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(959, 480)
+        Me.TableLayoutPanel2.TabIndex = 0
+        '
+        'ViewMainTaskDGV
+        '
+        Me.ViewMainTaskDGV.AllowUserToDeleteRows = False
+        Me.ViewMainTaskDGV.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.ViewMainTaskDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ViewMainTaskDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TaskNumb, Me.TaskNam, Me.MTDate})
+        Me.ViewMainTaskDGV.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ViewMainTaskDGV.GridColor = System.Drawing.Color.BlueViolet
+        Me.ViewMainTaskDGV.Location = New System.Drawing.Point(3, 3)
+        Me.ViewMainTaskDGV.Name = "ViewMainTaskDGV"
+        Me.ViewMainTaskDGV.ReadOnly = True
+        Me.ViewMainTaskDGV.RowHeadersWidth = 51
+        Me.TableLayoutPanel2.SetRowSpan(Me.ViewMainTaskDGV, 2)
+        Me.ViewMainTaskDGV.RowTemplate.Height = 24
+        Me.ViewMainTaskDGV.Size = New System.Drawing.Size(473, 474)
+        Me.ViewMainTaskDGV.TabIndex = 0
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.ProgressBar1)
+        Me.Panel2.Controls.Add(Me.TextBox4)
+        Me.Panel2.Controls.Add(Me.MTPriorityL)
+        Me.Panel2.Controls.Add(Me.ProgressVal)
+        Me.Panel2.Controls.Add(Me.MTDesc)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel2.Location = New System.Drawing.Point(482, 3)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(474, 194)
+        Me.Panel2.TabIndex = 3
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox4.Location = New System.Drawing.Point(24, 39)
+        Me.TextBox4.Multiline = True
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(426, 61)
+        Me.TextBox4.TabIndex = 2
+        '
+        'ViewSubTaskDGV
+        '
+        Me.ViewSubTaskDGV.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.ViewSubTaskDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ViewSubTaskDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.STNum, Me.STName, Me.STStatus})
+        Me.ViewSubTaskDGV.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ViewSubTaskDGV.Location = New System.Drawing.Point(482, 203)
+        Me.ViewSubTaskDGV.Name = "ViewSubTaskDGV"
+        Me.ViewSubTaskDGV.RowHeadersWidth = 51
+        Me.ViewSubTaskDGV.RowTemplate.Height = 24
+        Me.ViewSubTaskDGV.Size = New System.Drawing.Size(474, 274)
+        Me.ViewSubTaskDGV.TabIndex = 4
         '
         'AddTaskPanel
         '
@@ -699,36 +781,93 @@ Partial Class TaskManagement
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Task Description"
         '
-        'TableLayoutPanel2
+        'STNum
         '
-        Me.TableLayoutPanel2.ColumnCount = 2
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.ViewTaskDGV, 0, 0)
-        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 2
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(959, 430)
-        Me.TableLayoutPanel2.TabIndex = 0
+        Me.STNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.STNum.FillWeight = 0.1!
+        Me.STNum.HeaderText = "Num"
+        Me.STNum.MinimumWidth = 6
+        Me.STNum.Name = "STNum"
+        Me.STNum.ReadOnly = True
+        Me.STNum.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.STNum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'STName
+        '
+        Me.STName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.STName.FillWeight = 0.8!
+        Me.STName.HeaderText = "Name"
+        Me.STName.MinimumWidth = 6
+        Me.STName.Name = "STName"
+        Me.STName.ReadOnly = True
+        '
+        'STStatus
+        '
+        Me.STStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.STStatus.FillWeight = 0.1!
+        Me.STStatus.HeaderText = "Status"
+        Me.STStatus.MinimumWidth = 6
+        Me.STStatus.Name = "STStatus"
+        Me.STStatus.ReadOnly = True
+        '
+        'MTPriorityL
+        '
+        Me.MTPriorityL.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.MTPriorityL.AutoSize = True
+        Me.MTPriorityL.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MTPriorityL.ForeColor = System.Drawing.Color.Gold
+        Me.MTPriorityL.Location = New System.Drawing.Point(319, 7)
+        Me.MTPriorityL.Name = "MTPriorityL"
+        Me.MTPriorityL.Size = New System.Drawing.Size(131, 29)
+        Me.MTPriorityL.TabIndex = 1
+        Me.MTPriorityL.Text = "Priority : 0"
+        '
+        'ProgressBar1
+        '
+        Me.ProgressBar1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ProgressBar1.ForeColor = System.Drawing.Color.BlueViolet
+        Me.ProgressBar1.Location = New System.Drawing.Point(24, 135)
+        Me.ProgressBar1.Name = "ProgressBar1"
+        Me.ProgressBar1.Size = New System.Drawing.Size(426, 23)
+        Me.ProgressBar1.TabIndex = 3
+        '
+        'ProgressVal
+        '
+        Me.ProgressVal.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.ProgressVal.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ProgressVal.ForeColor = System.Drawing.Color.Gold
+        Me.ProgressVal.Location = New System.Drawing.Point(170, 161)
+        Me.ProgressVal.Name = "ProgressVal"
+        Me.ProgressVal.Size = New System.Drawing.Size(135, 22)
+        Me.ProgressVal.TabIndex = 1
+        Me.ProgressVal.Text = "0% completed"
         '
         'TaskNumb
         '
+        Me.TaskNumb.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.TaskNumb.FillWeight = 0.15!
         Me.TaskNumb.HeaderText = "Task Number"
         Me.TaskNumb.MinimumWidth = 6
         Me.TaskNumb.Name = "TaskNumb"
         Me.TaskNumb.ReadOnly = True
-        Me.TaskNumb.Width = 125
         '
         'TaskNam
         '
+        Me.TaskNam.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.TaskNam.FillWeight = 0.65!
         Me.TaskNam.HeaderText = "Task Name"
         Me.TaskNam.MinimumWidth = 6
         Me.TaskNam.Name = "TaskNam"
         Me.TaskNam.ReadOnly = True
-        Me.TaskNam.Width = 125
+        '
+        'MTDate
+        '
+        Me.MTDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.MTDate.FillWeight = 0.2!
+        Me.MTDate.HeaderText = "Date"
+        Me.MTDate.MinimumWidth = 6
+        Me.MTDate.Name = "MTDate"
+        Me.MTDate.ReadOnly = True
         '
         'TaskManagement
         '
@@ -751,14 +890,17 @@ Partial Class TaskManagement
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
-        CType(Me.ViewTaskDGV, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        CType(Me.ViewMainTaskDGV, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        CType(Me.ViewSubTaskDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.AddTaskPanel.ResumeLayout(False)
         Me.InnerPanel.ResumeLayout(False)
         Me.InnerPanel.PerformLayout()
         Me.DeleteTaskPanel.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        Me.TableLayoutPanel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -810,11 +952,21 @@ Partial Class TaskManagement
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents ViewTaskPanel As Panel
     Friend WithEvents SplitContainer1 As SplitContainer
-    Friend WithEvents ViewTaskDGV As DataGridView
+    Friend WithEvents ViewMainTaskDGV As DataGridView
     Friend WithEvents BackFromViewTaskB As Button
     Friend WithEvents ViewViewTask As Button
-    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents MTDesc As Label
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents ViewSubTaskDGV As DataGridView
+    Friend WithEvents STNum As DataGridViewButtonColumn
+    Friend WithEvents STName As DataGridViewTextBoxColumn
+    Friend WithEvents STStatus As DataGridViewCheckBoxColumn
+    Friend WithEvents MTPriorityL As Label
+    Friend WithEvents ProgressBar1 As ProgressBar
+    Friend WithEvents ProgressVal As Label
     Friend WithEvents TaskNumb As DataGridViewTextBoxColumn
     Friend WithEvents TaskNam As DataGridViewTextBoxColumn
+    Friend WithEvents MTDate As DataGridViewTextBoxColumn
 End Class

@@ -89,11 +89,17 @@ Public Class TaskManagement
         Dim da As New SqlDataAdapter(cmd)
         Dim dt As New DataTable
         da.Fill(dt)
-        ViewTaskDGV.DataSource = dt
+        ViewMainTaskDGV.DataSource = dt
         con.Close()
     End Sub
 
     Private Sub ViewViewTask_Click(sender As Object, e As EventArgs) Handles ViewViewTask.Click
         ShowDataDGV("MainTask", "")
     End Sub
+
+    Private Sub TableLayoutPanel2_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel2.Paint
+
+    End Sub
+
+
 End Class
