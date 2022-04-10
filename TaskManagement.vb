@@ -97,9 +97,14 @@ Public Class TaskManagement
         ShowDataDGV("MainTask", "")
     End Sub
 
-    Private Sub TableLayoutPanel2_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel2.Paint
+
+
+    Private Sub FillToolStripButton_Click(sender As Object, e As EventArgs) Handles FillToolStripButton.Click
+        Try
+            Me.MainTaskTableAdapter.Fill(Me.PersonalAssistantDBDataSet.MainTask)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
 
     End Sub
-
-
 End Class

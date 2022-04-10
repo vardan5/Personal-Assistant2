@@ -139,6 +139,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="PersonalAssistantDBDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PersonalAssistantDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TaskManagement.Designer.vb">
       <DependentUpon>TaskManagement.vb</DependentUpon>
     </Compile>
@@ -194,6 +199,17 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="PersonalAssistantDBDataSet.xsc">
+      <DependentUpon>PersonalAssistantDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PersonalAssistantDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PersonalAssistantDBDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PersonalAssistantDBDataSet.xss">
+      <DependentUpon>PersonalAssistantDBDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
