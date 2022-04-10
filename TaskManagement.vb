@@ -2,8 +2,6 @@
 
 Public Class TaskManagement
 
-    Dim con As New SqlConnection
-    Dim cmd As New SqlCommand
 
 
     'For TitlePanel Grey Border
@@ -75,36 +73,33 @@ Public Class TaskManagement
         HomeTaskPanel.Enabled = True
     End Sub
 
-
-    Private Sub TaskManagement_Load(sender As Object, e As EventArgs) Handles Me.Load
-        con.ConnectionString = Personal_Assistant2.My.Settings.PADBConnString
-
-    End Sub
-
-    Private Sub ShowDataDGV(ByVal table As String, ByVal condition As String)
-        con.Open()
-        cmd.Connection = con
-        cmd.CommandType = CommandType.Text
-        cmd.CommandText = "SELECT * from [" & table & "] " & condition & ";"
-        Dim da As New SqlDataAdapter(cmd)
-        Dim dt As New DataTable
-        da.Fill(dt)
-        ViewMainTaskDGV.DataSource = dt
-        con.Close()
-    End Sub
-
-    Private Sub ViewViewTask_Click(sender As Object, e As EventArgs) Handles ViewViewTask.Click
-        ShowDataDGV("MainTask", "")
-    End Sub
-
-
-
-    Private Sub FillToolStripButton_Click(sender As Object, e As EventArgs) Handles FillToolStripButton.Click
+    Private Sub ViewViewTaskB_Click(sender As Object, e As EventArgs) Handles ViewViewTaskB.Click
         Try
             Me.MainTaskTableAdapter.Fill(Me.PersonalAssistantDBDataSet.MainTask)
         Catch ex As System.Exception
-            System.Windows.Forms.MessageBox.Show(ex.Message)
+            System.Windows.Forms.MessageBox.Show("From ViewB : " & ex.Message)
         End Try
+        'ShowDataDGV("MainTask", "")
+    End Sub
+
+
+    Private Sub DummyL_TextChanged(sender As Object, e As EventArgs) Handles DummyL.TextChanged
+        Try
+            Me.SubTaskTableAdapter.FillByParentNum(Me.PersonalAssistantDBDataSet.SubTask, CType(DummyL.Text, Integer))
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show("Dummy" & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub ViewTaskPanel_VisibleChanged(sender As Object, e As EventArgs) Handles ViewTaskPanel.VisibleChanged
+
+        'Setting the default dates
+        TaskViewBeginDate.Value = New Date(Now.Year, Now.Month, 1)
+        TaskViewEndDate.Value = New Date(Now.Year, Now.Month, Date.DaysInMonth(Now.Year, Now.Month))
+
+        'For not generate columns
+
 
     End Sub
+
 End Class

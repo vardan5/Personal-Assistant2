@@ -35,22 +35,38 @@ Partial Class TaskManagement
         Me.ViewTaskL = New System.Windows.Forms.Label()
         Me.DeleteTaskL = New System.Windows.Forms.Label()
         Me.AnimationPanel = New System.Windows.Forms.Panel()
-        Me.TitlePanel = New System.Windows.Forms.Panel()
-        Me.TaskManagementL = New System.Windows.Forms.Label()
         Me.BasePanel = New System.Windows.Forms.Panel()
         Me.ViewTaskPanel = New System.Windows.Forms.Panel()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.ViewViewTask = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TaskViewEndDate = New System.Windows.Forms.DateTimePicker()
+        Me.TaskViewBeginDate = New System.Windows.Forms.DateTimePicker()
+        Me.Status = New System.Windows.Forms.GroupBox()
+        Me.CompletedChB = New System.Windows.Forms.CheckBox()
+        Me.PendingChB = New System.Windows.Forms.CheckBox()
+        Me.ViewViewTaskB = New System.Windows.Forms.Button()
         Me.BackFromViewTaskB = New System.Windows.Forms.Button()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.ViewMainTaskDGV = New System.Windows.Forms.DataGridView()
+        Me.MainTaskBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PersonalAssistantDBDataSet = New Personal_Assistant2.PersonalAssistantDBDataSet()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.DummyL = New System.Windows.Forms.Label()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.MTPriorityL = New System.Windows.Forms.Label()
         Me.ProgressVal = New System.Windows.Forms.Label()
         Me.MTDesc = New System.Windows.Forms.Label()
         Me.ViewSubTaskDGV = New System.Windows.Forms.DataGridView()
+        Me.STNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.STName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.STStatus = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.ParentTaskNumDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.OrderNumDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SubTaskNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SubTaskDescDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StatusDataGridViewImageColumn = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.SubTaskBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AddTaskPanel = New System.Windows.Forms.Panel()
         Me.InnerPanel = New System.Windows.Forms.Panel()
         Me.AddTaskTitle = New System.Windows.Forms.Label()
@@ -81,41 +97,36 @@ Partial Class TaskManagement
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.PersonalAssistantDBDataSet = New Personal_Assistant2.PersonalAssistantDBDataSet()
-        Me.MainTaskBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TaskManagementL = New System.Windows.Forms.Label()
+        Me.TitlePanel = New System.Windows.Forms.Panel()
         Me.MainTaskTableAdapter = New Personal_Assistant2.PersonalAssistantDBDataSetTableAdapters.MainTaskTableAdapter()
+        Me.SubTaskTableAdapter = New Personal_Assistant2.PersonalAssistantDBDataSetTableAdapters.SubTaskTableAdapter()
         Me.TaskNumb = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TaskNam = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MTDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SubTaskBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.SubTaskTableAdapter = New Personal_Assistant2.PersonalAssistantDBDataSetTableAdapters.SubTaskTableAdapter()
-        Me.STNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.STName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.STStatus = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.FillToolStrip = New System.Windows.Forms.ToolStrip()
-        Me.FillToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.HomeTaskPanel.SuspendLayout()
         Me.ButtonPanel.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
-        Me.TitlePanel.SuspendLayout()
         Me.BasePanel.SuspendLayout()
         Me.ViewTaskPanel.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.Status.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.ViewMainTaskDGV, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MainTaskBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PersonalAssistantDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.ViewSubTaskDGV, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SubTaskBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AddTaskPanel.SuspendLayout()
         Me.InnerPanel.SuspendLayout()
         Me.DeleteTaskPanel.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        CType(Me.PersonalAssistantDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MainTaskBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SubTaskBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.FillToolStrip.SuspendLayout()
+        Me.TitlePanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'HomeTaskPanel
@@ -295,28 +306,6 @@ Partial Class TaskManagement
         Me.AnimationPanel.Size = New System.Drawing.Size(959, 585)
         Me.AnimationPanel.TabIndex = 4
         '
-        'TitlePanel
-        '
-        Me.TitlePanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TitlePanel.Controls.Add(Me.TaskManagementL)
-        Me.TitlePanel.Location = New System.Drawing.Point(3, 3)
-        Me.TitlePanel.Name = "TitlePanel"
-        Me.TitlePanel.Size = New System.Drawing.Size(959, 71)
-        Me.TitlePanel.TabIndex = 4
-        '
-        'TaskManagementL
-        '
-        Me.TaskManagementL.AutoSize = True
-        Me.TaskManagementL.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.TaskManagementL.Font = New System.Drawing.Font("Segoe UI", 24.0!)
-        Me.TaskManagementL.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
-        Me.TaskManagementL.Location = New System.Drawing.Point(22, 10)
-        Me.TaskManagementL.Name = "TaskManagementL"
-        Me.TaskManagementL.Size = New System.Drawing.Size(344, 54)
-        Me.TaskManagementL.TabIndex = 0
-        Me.TaskManagementL.Text = "Task Management"
-        '
         'BasePanel
         '
         Me.BasePanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -354,30 +343,126 @@ Partial Class TaskManagement
         'SplitContainer1.Panel1
         '
         Me.SplitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ViewViewTask)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.GroupBox1)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Status)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.ViewViewTaskB)
         Me.SplitContainer1.Panel1.Controls.Add(Me.BackFromViewTaskB)
         '
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.TableLayoutPanel2)
         Me.SplitContainer1.Size = New System.Drawing.Size(959, 585)
-        Me.SplitContainer1.SplitterDistance = 101
+        Me.SplitContainer1.SplitterDistance = 127
         Me.SplitContainer1.TabIndex = 0
         '
-        'ViewViewTask
+        'GroupBox1
         '
-        Me.ViewViewTask.Location = New System.Drawing.Point(763, 24)
-        Me.ViewViewTask.Name = "ViewViewTask"
-        Me.ViewViewTask.Size = New System.Drawing.Size(75, 64)
-        Me.ViewViewTask.TabIndex = 0
-        Me.ViewViewTask.Text = "View"
-        Me.ViewViewTask.UseVisualStyleBackColor = True
+        Me.GroupBox1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.GroupBox1.Controls.Add(Me.TaskViewEndDate)
+        Me.GroupBox1.Controls.Add(Me.TaskViewBeginDate)
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.ForeColor = System.Drawing.Color.Gold
+        Me.GroupBox1.Location = New System.Drawing.Point(264, 19)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(458, 88)
+        Me.GroupBox1.TabIndex = 3
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Date Range"
+        '
+        'TaskViewEndDate
+        '
+        Me.TaskViewEndDate.CalendarForeColor = System.Drawing.Color.Gold
+        Me.TaskViewEndDate.CalendarMonthBackground = System.Drawing.Color.Black
+        Me.TaskViewEndDate.CalendarTitleBackColor = System.Drawing.Color.BlueViolet
+        Me.TaskViewEndDate.CalendarTitleForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.TaskViewEndDate.CalendarTrailingForeColor = System.Drawing.Color.BlueViolet
+        Me.TaskViewEndDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TaskViewEndDate.Location = New System.Drawing.Point(242, 39)
+        Me.TaskViewEndDate.Name = "TaskViewEndDate"
+        Me.TaskViewEndDate.Size = New System.Drawing.Size(200, 28)
+        Me.TaskViewEndDate.TabIndex = 0
+        '
+        'TaskViewBeginDate
+        '
+        Me.TaskViewBeginDate.CalendarForeColor = System.Drawing.Color.Gold
+        Me.TaskViewBeginDate.CalendarMonthBackground = System.Drawing.Color.Black
+        Me.TaskViewBeginDate.CalendarTitleBackColor = System.Drawing.Color.BlueViolet
+        Me.TaskViewBeginDate.CalendarTitleForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.TaskViewBeginDate.CalendarTrailingForeColor = System.Drawing.Color.BlueViolet
+        Me.TaskViewBeginDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TaskViewBeginDate.Location = New System.Drawing.Point(17, 39)
+        Me.TaskViewBeginDate.Name = "TaskViewBeginDate"
+        Me.TaskViewBeginDate.Size = New System.Drawing.Size(200, 28)
+        Me.TaskViewBeginDate.TabIndex = 0
+        '
+        'Status
+        '
+        Me.Status.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Status.Controls.Add(Me.CompletedChB)
+        Me.Status.Controls.Add(Me.PendingChB)
+        Me.Status.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Status.ForeColor = System.Drawing.Color.Gold
+        Me.Status.Location = New System.Drawing.Point(31, 19)
+        Me.Status.Name = "Status"
+        Me.Status.Size = New System.Drawing.Size(200, 88)
+        Me.Status.TabIndex = 3
+        Me.Status.TabStop = False
+        Me.Status.Text = "Status"
+        '
+        'CompletedChB
+        '
+        Me.CompletedChB.AutoSize = True
+        Me.CompletedChB.Checked = True
+        Me.CompletedChB.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CompletedChB.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CompletedChB.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CompletedChB.ForeColor = System.Drawing.Color.Gold
+        Me.CompletedChB.Location = New System.Drawing.Point(38, 25)
+        Me.CompletedChB.Name = "CompletedChB"
+        Me.CompletedChB.Size = New System.Drawing.Size(114, 26)
+        Me.CompletedChB.TabIndex = 2
+        Me.CompletedChB.Text = "Completed"
+        Me.CompletedChB.UseVisualStyleBackColor = True
+        '
+        'PendingChB
+        '
+        Me.PendingChB.AutoSize = True
+        Me.PendingChB.Checked = True
+        Me.PendingChB.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.PendingChB.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.PendingChB.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PendingChB.ForeColor = System.Drawing.Color.Gold
+        Me.PendingChB.Location = New System.Drawing.Point(38, 51)
+        Me.PendingChB.Name = "PendingChB"
+        Me.PendingChB.Size = New System.Drawing.Size(94, 26)
+        Me.PendingChB.TabIndex = 2
+        Me.PendingChB.Text = "Pending"
+        Me.PendingChB.UseVisualStyleBackColor = True
+        '
+        'ViewViewTaskB
+        '
+        Me.ViewViewTaskB.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.ViewViewTaskB.FlatAppearance.BorderColor = System.Drawing.Color.BlueViolet
+        Me.ViewViewTaskB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet
+        Me.ViewViewTaskB.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ViewViewTaskB.ForeColor = System.Drawing.Color.BlueViolet
+        Me.ViewViewTaskB.Location = New System.Drawing.Point(755, 30)
+        Me.ViewViewTaskB.Name = "ViewViewTaskB"
+        Me.ViewViewTaskB.Size = New System.Drawing.Size(81, 77)
+        Me.ViewViewTaskB.TabIndex = 0
+        Me.ViewViewTaskB.Text = "View"
+        Me.ViewViewTaskB.UseVisualStyleBackColor = True
         '
         'BackFromViewTaskB
         '
-        Me.BackFromViewTaskB.Location = New System.Drawing.Point(857, 24)
+        Me.BackFromViewTaskB.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.BackFromViewTaskB.FlatAppearance.BorderColor = System.Drawing.Color.BlueViolet
+        Me.BackFromViewTaskB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet
+        Me.BackFromViewTaskB.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BackFromViewTaskB.ForeColor = System.Drawing.Color.BlueViolet
+        Me.BackFromViewTaskB.Location = New System.Drawing.Point(857, 30)
         Me.BackFromViewTaskB.Name = "BackFromViewTaskB"
-        Me.BackFromViewTaskB.Size = New System.Drawing.Size(75, 64)
+        Me.BackFromViewTaskB.Size = New System.Drawing.Size(81, 77)
         Me.BackFromViewTaskB.TabIndex = 0
         Me.BackFromViewTaskB.Text = "Back"
         Me.BackFromViewTaskB.UseVisualStyleBackColor = True
@@ -396,29 +481,43 @@ Partial Class TaskManagement
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.66667!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.33333!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(959, 480)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(959, 454)
         Me.TableLayoutPanel2.TabIndex = 0
         '
         'ViewMainTaskDGV
         '
+        Me.ViewMainTaskDGV.AllowUserToAddRows = False
+        Me.ViewMainTaskDGV.AllowUserToDeleteRows = False
         Me.ViewMainTaskDGV.AutoGenerateColumns = False
         Me.ViewMainTaskDGV.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.ViewMainTaskDGV.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText
         Me.ViewMainTaskDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ViewMainTaskDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TaskNumb, Me.TaskNam, Me.MTDate})
         Me.ViewMainTaskDGV.DataSource = Me.MainTaskBindingSource
-        Me.ViewMainTaskDGV.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ViewMainTaskDGV.GridColor = System.Drawing.Color.BlueViolet
         Me.ViewMainTaskDGV.Location = New System.Drawing.Point(3, 3)
         Me.ViewMainTaskDGV.Name = "ViewMainTaskDGV"
+        Me.ViewMainTaskDGV.ReadOnly = True
         Me.ViewMainTaskDGV.RowHeadersWidth = 51
         Me.TableLayoutPanel2.SetRowSpan(Me.ViewMainTaskDGV, 2)
         Me.ViewMainTaskDGV.RowTemplate.Height = 24
-        Me.ViewMainTaskDGV.Size = New System.Drawing.Size(473, 474)
+        Me.ViewMainTaskDGV.Size = New System.Drawing.Size(330, 172)
         Me.ViewMainTaskDGV.TabIndex = 0
+        '
+        'MainTaskBindingSource
+        '
+        Me.MainTaskBindingSource.DataMember = "MainTask"
+        Me.MainTaskBindingSource.DataSource = Me.PersonalAssistantDBDataSet
+        '
+        'PersonalAssistantDBDataSet
+        '
+        Me.PersonalAssistantDBDataSet.DataSetName = "PersonalAssistantDBDataSet"
+        Me.PersonalAssistantDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.DummyL)
         Me.Panel2.Controls.Add(Me.ProgressBar1)
         Me.Panel2.Controls.Add(Me.TextBox4)
         Me.Panel2.Controls.Add(Me.MTPriorityL)
@@ -427,15 +526,26 @@ Partial Class TaskManagement
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(482, 3)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(474, 194)
+        Me.Panel2.Size = New System.Drawing.Size(474, 183)
         Me.Panel2.TabIndex = 3
+        '
+        'DummyL
+        '
+        Me.DummyL.AutoSize = True
+        Me.DummyL.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MainTaskBindingSource, "TaskNum", True))
+        Me.DummyL.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.DummyL.Location = New System.Drawing.Point(165, 103)
+        Me.DummyL.Name = "DummyL"
+        Me.DummyL.Size = New System.Drawing.Size(14, 16)
+        Me.DummyL.TabIndex = 4
+        Me.DummyL.Text = "1"
         '
         'ProgressBar1
         '
         Me.ProgressBar1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ProgressBar1.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.MainTaskBindingSource, "Progress", True))
         Me.ProgressBar1.ForeColor = System.Drawing.Color.BlueViolet
-        Me.ProgressBar1.Location = New System.Drawing.Point(24, 135)
+        Me.ProgressBar1.Location = New System.Drawing.Point(24, 129)
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(426, 23)
         Me.ProgressBar1.TabIndex = 3
@@ -445,7 +555,7 @@ Partial Class TaskManagement
         Me.TextBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBox4.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MainTaskBindingSource, "TaskDesc", True))
         Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(24, 39)
+        Me.TextBox4.Location = New System.Drawing.Point(24, 33)
         Me.TextBox4.Multiline = True
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(426, 61)
@@ -468,7 +578,7 @@ Partial Class TaskManagement
         Me.ProgressVal.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.ProgressVal.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ProgressVal.ForeColor = System.Drawing.Color.Gold
-        Me.ProgressVal.Location = New System.Drawing.Point(170, 161)
+        Me.ProgressVal.Location = New System.Drawing.Point(170, 150)
         Me.ProgressVal.Name = "ProgressVal"
         Me.ProgressVal.Size = New System.Drawing.Size(135, 22)
         Me.ProgressVal.TabIndex = 1
@@ -487,18 +597,106 @@ Partial Class TaskManagement
         '
         'ViewSubTaskDGV
         '
+        Me.ViewSubTaskDGV.AllowUserToAddRows = False
+        Me.ViewSubTaskDGV.AllowUserToDeleteRows = False
         Me.ViewSubTaskDGV.AutoGenerateColumns = False
         Me.ViewSubTaskDGV.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.ViewSubTaskDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ViewSubTaskDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.STNum, Me.STName, Me.STStatus})
+        Me.ViewSubTaskDGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.STNum, Me.STName, Me.STStatus, Me.ParentTaskNumDataGridViewTextBoxColumn, Me.OrderNumDataGridViewTextBoxColumn, Me.SubTaskNameDataGridViewTextBoxColumn, Me.SubTaskDescDataGridViewTextBoxColumn, Me.StatusDataGridViewImageColumn})
         Me.ViewSubTaskDGV.DataSource = Me.SubTaskBindingSource
         Me.ViewSubTaskDGV.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ViewSubTaskDGV.Location = New System.Drawing.Point(482, 203)
+        Me.ViewSubTaskDGV.Location = New System.Drawing.Point(482, 192)
+        Me.ViewSubTaskDGV.MultiSelect = False
         Me.ViewSubTaskDGV.Name = "ViewSubTaskDGV"
+        Me.ViewSubTaskDGV.ReadOnly = True
         Me.ViewSubTaskDGV.RowHeadersWidth = 51
         Me.ViewSubTaskDGV.RowTemplate.Height = 24
-        Me.ViewSubTaskDGV.Size = New System.Drawing.Size(474, 274)
+        Me.ViewSubTaskDGV.Size = New System.Drawing.Size(474, 259)
         Me.ViewSubTaskDGV.TabIndex = 4
+        '
+        'STNum
+        '
+        Me.STNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.STNum.DataPropertyName = "OrderNum"
+        Me.STNum.FillWeight = 0.11!
+        Me.STNum.HeaderText = "Num"
+        Me.STNum.MinimumWidth = 6
+        Me.STNum.Name = "STNum"
+        Me.STNum.ReadOnly = True
+        Me.STNum.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        '
+        'STName
+        '
+        Me.STName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.STName.DataPropertyName = "SubTaskName"
+        Me.STName.FillWeight = 0.75!
+        Me.STName.HeaderText = "Name"
+        Me.STName.MinimumWidth = 6
+        Me.STName.Name = "STName"
+        Me.STName.ReadOnly = True
+        '
+        'STStatus
+        '
+        Me.STStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.STStatus.DataPropertyName = "Status"
+        Me.STStatus.FalseValue = "PENDING"
+        Me.STStatus.FillWeight = 0.14!
+        Me.STStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.STStatus.HeaderText = "Status"
+        Me.STStatus.MinimumWidth = 6
+        Me.STStatus.Name = "STStatus"
+        Me.STStatus.ReadOnly = True
+        Me.STStatus.TrueValue = "COMPLETED"
+        '
+        'ParentTaskNumDataGridViewTextBoxColumn
+        '
+        Me.ParentTaskNumDataGridViewTextBoxColumn.DataPropertyName = "ParentTaskNum"
+        Me.ParentTaskNumDataGridViewTextBoxColumn.HeaderText = "ParentTaskNum"
+        Me.ParentTaskNumDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.ParentTaskNumDataGridViewTextBoxColumn.Name = "ParentTaskNumDataGridViewTextBoxColumn"
+        Me.ParentTaskNumDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ParentTaskNumDataGridViewTextBoxColumn.Width = 125
+        '
+        'OrderNumDataGridViewTextBoxColumn
+        '
+        Me.OrderNumDataGridViewTextBoxColumn.DataPropertyName = "OrderNum"
+        Me.OrderNumDataGridViewTextBoxColumn.HeaderText = "OrderNum"
+        Me.OrderNumDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.OrderNumDataGridViewTextBoxColumn.Name = "OrderNumDataGridViewTextBoxColumn"
+        Me.OrderNumDataGridViewTextBoxColumn.ReadOnly = True
+        Me.OrderNumDataGridViewTextBoxColumn.Width = 125
+        '
+        'SubTaskNameDataGridViewTextBoxColumn
+        '
+        Me.SubTaskNameDataGridViewTextBoxColumn.DataPropertyName = "SubTaskName"
+        Me.SubTaskNameDataGridViewTextBoxColumn.HeaderText = "SubTaskName"
+        Me.SubTaskNameDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.SubTaskNameDataGridViewTextBoxColumn.Name = "SubTaskNameDataGridViewTextBoxColumn"
+        Me.SubTaskNameDataGridViewTextBoxColumn.ReadOnly = True
+        Me.SubTaskNameDataGridViewTextBoxColumn.Width = 125
+        '
+        'SubTaskDescDataGridViewTextBoxColumn
+        '
+        Me.SubTaskDescDataGridViewTextBoxColumn.DataPropertyName = "SubTaskDesc"
+        Me.SubTaskDescDataGridViewTextBoxColumn.HeaderText = "SubTaskDesc"
+        Me.SubTaskDescDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.SubTaskDescDataGridViewTextBoxColumn.Name = "SubTaskDescDataGridViewTextBoxColumn"
+        Me.SubTaskDescDataGridViewTextBoxColumn.ReadOnly = True
+        Me.SubTaskDescDataGridViewTextBoxColumn.Width = 125
+        '
+        'StatusDataGridViewImageColumn
+        '
+        Me.StatusDataGridViewImageColumn.DataPropertyName = "Status"
+        Me.StatusDataGridViewImageColumn.HeaderText = "Status"
+        Me.StatusDataGridViewImageColumn.MinimumWidth = 6
+        Me.StatusDataGridViewImageColumn.Name = "StatusDataGridViewImageColumn"
+        Me.StatusDataGridViewImageColumn.ReadOnly = True
+        Me.StatusDataGridViewImageColumn.Width = 125
+        '
+        'SubTaskBindingSource
+        '
+        Me.SubTaskBindingSource.DataMember = "SubTask"
+        Me.SubTaskBindingSource.DataSource = Me.PersonalAssistantDBDataSet
         '
         'AddTaskPanel
         '
@@ -829,19 +1027,35 @@ Partial Class TaskManagement
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Task Description"
         '
-        'PersonalAssistantDBDataSet
+        'TaskManagementL
         '
-        Me.PersonalAssistantDBDataSet.DataSetName = "PersonalAssistantDBDataSet"
-        Me.PersonalAssistantDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.TaskManagementL.AutoSize = True
+        Me.TaskManagementL.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.TaskManagementL.Font = New System.Drawing.Font("Segoe UI", 24.0!)
+        Me.TaskManagementL.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.TaskManagementL.Location = New System.Drawing.Point(22, 10)
+        Me.TaskManagementL.Name = "TaskManagementL"
+        Me.TaskManagementL.Size = New System.Drawing.Size(344, 54)
+        Me.TaskManagementL.TabIndex = 0
+        Me.TaskManagementL.Text = "Task Management"
         '
-        'MainTaskBindingSource
+        'TitlePanel
         '
-        Me.MainTaskBindingSource.DataMember = "MainTask"
-        Me.MainTaskBindingSource.DataSource = Me.PersonalAssistantDBDataSet
+        Me.TitlePanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TitlePanel.Controls.Add(Me.TaskManagementL)
+        Me.TitlePanel.Location = New System.Drawing.Point(3, 3)
+        Me.TitlePanel.Name = "TitlePanel"
+        Me.TitlePanel.Size = New System.Drawing.Size(959, 71)
+        Me.TitlePanel.TabIndex = 4
         '
         'MainTaskTableAdapter
         '
         Me.MainTaskTableAdapter.ClearBeforeFill = True
+        '
+        'SubTaskTableAdapter
+        '
+        Me.SubTaskTableAdapter.ClearBeforeFill = True
         '
         'TaskNumb
         '
@@ -851,6 +1065,7 @@ Partial Class TaskManagement
         Me.TaskNumb.HeaderText = "Task Number"
         Me.TaskNumb.MinimumWidth = 6
         Me.TaskNumb.Name = "TaskNumb"
+        Me.TaskNumb.ReadOnly = True
         '
         'TaskNam
         '
@@ -860,6 +1075,7 @@ Partial Class TaskManagement
         Me.TaskNam.HeaderText = "Task Name"
         Me.TaskNam.MinimumWidth = 6
         Me.TaskNam.Name = "TaskNam"
+        Me.TaskNam.ReadOnly = True
         '
         'MTDate
         '
@@ -869,69 +1085,12 @@ Partial Class TaskManagement
         Me.MTDate.HeaderText = "Date"
         Me.MTDate.MinimumWidth = 6
         Me.MTDate.Name = "MTDate"
-        '
-        'SubTaskBindingSource
-        '
-        Me.SubTaskBindingSource.DataMember = "SubTask"
-        Me.SubTaskBindingSource.DataSource = Me.PersonalAssistantDBDataSet
-        '
-        'SubTaskTableAdapter
-        '
-        Me.SubTaskTableAdapter.ClearBeforeFill = True
-        '
-        'STNum
-        '
-        Me.STNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.STNum.DataPropertyName = "OrderNum"
-        Me.STNum.FillWeight = 0.11!
-        Me.STNum.HeaderText = "Num"
-        Me.STNum.MinimumWidth = 6
-        Me.STNum.Name = "STNum"
-        Me.STNum.ReadOnly = True
-        Me.STNum.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        '
-        'STName
-        '
-        Me.STName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.STName.DataPropertyName = "SubTaskName"
-        Me.STName.FillWeight = 0.75!
-        Me.STName.HeaderText = "Name"
-        Me.STName.MinimumWidth = 6
-        Me.STName.Name = "STName"
-        Me.STName.ReadOnly = True
-        '
-        'STStatus
-        '
-        Me.STStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.STStatus.DataPropertyName = "Status"
-        Me.STStatus.FillWeight = 0.14!
-        Me.STStatus.HeaderText = "Status"
-        Me.STStatus.MinimumWidth = 6
-        Me.STStatus.Name = "STStatus"
-        Me.STStatus.ReadOnly = True
-        '
-        'FillToolStrip
-        '
-        Me.FillToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.FillToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FillToolStripButton})
-        Me.FillToolStrip.Location = New System.Drawing.Point(0, 0)
-        Me.FillToolStrip.Name = "FillToolStrip"
-        Me.FillToolStrip.Size = New System.Drawing.Size(112, 25)
-        Me.FillToolStrip.TabIndex = 5
-        Me.FillToolStrip.Text = "FillToolStrip"
-        '
-        'FillToolStripButton
-        '
-        Me.FillToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.FillToolStripButton.Name = "FillToolStripButton"
-        Me.FillToolStripButton.Size = New System.Drawing.Size(32, 22)
-        Me.FillToolStripButton.Text = "Fill"
+        Me.MTDate.ReadOnly = True
         '
         'TaskManagement
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.BlueViolet
-        Me.Controls.Add(Me.FillToolStrip)
         Me.Controls.Add(Me.BasePanel)
         Me.Controls.Add(Me.TitlePanel)
         Me.DoubleBuffered = True
@@ -941,32 +1100,32 @@ Partial Class TaskManagement
         Me.ButtonPanel.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
-        Me.TitlePanel.ResumeLayout(False)
-        Me.TitlePanel.PerformLayout()
         Me.BasePanel.ResumeLayout(False)
         Me.ViewTaskPanel.ResumeLayout(False)
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        Me.Status.ResumeLayout(False)
+        Me.Status.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
         CType(Me.ViewMainTaskDGV, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MainTaskBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PersonalAssistantDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.ViewSubTaskDGV, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SubTaskBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.AddTaskPanel.ResumeLayout(False)
         Me.InnerPanel.ResumeLayout(False)
         Me.InnerPanel.PerformLayout()
         Me.DeleteTaskPanel.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.PersonalAssistantDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MainTaskBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SubTaskBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.FillToolStrip.ResumeLayout(False)
-        Me.FillToolStrip.PerformLayout()
+        Me.TitlePanel.ResumeLayout(False)
+        Me.TitlePanel.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -982,8 +1141,6 @@ Partial Class TaskManagement
     Friend WithEvents ViewTaskL As Label
     Friend WithEvents DeleteTaskL As Label
     Friend WithEvents AnimationPanel As Panel
-    Friend WithEvents TitlePanel As Panel
-    Friend WithEvents TaskManagementL As Label
     Friend WithEvents BasePanel As Panel
     Friend WithEvents AddTaskPanel As Panel
     Friend WithEvents InnerPanel As Panel
@@ -1019,7 +1176,7 @@ Partial Class TaskManagement
     Friend WithEvents SplitContainer1 As SplitContainer
     Friend WithEvents ViewMainTaskDGV As DataGridView
     Friend WithEvents BackFromViewTaskB As Button
-    Friend WithEvents ViewViewTask As Button
+    Friend WithEvents ViewViewTaskB As Button
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents MTDesc As Label
     Friend WithEvents Panel2 As Panel
@@ -1028,17 +1185,29 @@ Partial Class TaskManagement
     Friend WithEvents MTPriorityL As Label
     Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents ProgressVal As Label
-    Friend WithEvents TaskNumb As DataGridViewTextBoxColumn
-    Friend WithEvents TaskNam As DataGridViewTextBoxColumn
-    Friend WithEvents MTDate As DataGridViewTextBoxColumn
     Friend WithEvents MainTaskBindingSource As BindingSource
     Friend WithEvents PersonalAssistantDBDataSet As PersonalAssistantDBDataSet
-    Friend WithEvents STNum As DataGridViewTextBoxColumn
-    Friend WithEvents STName As DataGridViewTextBoxColumn
-    Friend WithEvents STStatus As DataGridViewCheckBoxColumn
     Friend WithEvents SubTaskBindingSource As BindingSource
     Friend WithEvents MainTaskTableAdapter As PersonalAssistantDBDataSetTableAdapters.MainTaskTableAdapter
     Friend WithEvents SubTaskTableAdapter As PersonalAssistantDBDataSetTableAdapters.SubTaskTableAdapter
-    Friend WithEvents FillToolStrip As ToolStrip
-    Friend WithEvents FillToolStripButton As ToolStripButton
+    Friend WithEvents PendingChB As CheckBox
+    Friend WithEvents CompletedChB As CheckBox
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents TaskViewBeginDate As DateTimePicker
+    Friend WithEvents Status As GroupBox
+    Friend WithEvents TaskViewEndDate As DateTimePicker
+    Friend WithEvents TaskManagementL As Label
+    Friend WithEvents TitlePanel As Panel
+    Friend WithEvents DummyL As Label
+    Friend WithEvents STNum As DataGridViewTextBoxColumn
+    Friend WithEvents STName As DataGridViewTextBoxColumn
+    Friend WithEvents STStatus As DataGridViewCheckBoxColumn
+    Friend WithEvents ParentTaskNumDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents OrderNumDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents SubTaskNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents SubTaskDescDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents StatusDataGridViewImageColumn As DataGridViewImageColumn
+    Friend WithEvents TaskNumb As DataGridViewTextBoxColumn
+    Friend WithEvents TaskNam As DataGridViewTextBoxColumn
+    Friend WithEvents MTDate As DataGridViewTextBoxColumn
 End Class
